@@ -13,7 +13,6 @@ __version__: 0.2
   R6: 2.1.2
   codetools: 0.2-15
   mime: 0.4
-  pvm: github::repo=wush978/pvm@dcbcb71f529e805493058732b70505759a8f0501
 3:
   memoise: 1.0.0
 4:
@@ -27,7 +26,6 @@ __version__: 0.2
   stringi: 1.0-1
 5:
   Rcpp: 0.12.4
-  remotes: 1.0.0
   jsonlite: 0.9.19
   nlme: 3.1-129
   Matrix: 1.2-7.1
@@ -44,5 +42,4 @@ __version__: 0.2
   httr: 1.1.0
   survival: 2.39-4
   httpuv: 1.3.3
-7:
-  swirl: 101.5.4.1
+
