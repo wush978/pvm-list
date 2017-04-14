@@ -1,5 +1,6 @@
 __version__: 0.2
 1:
+  git2r: 0.18.0
   bitops: 1.0-6
   labeling: 0.3
   slidifyLibraries: github::repo=wush978/slidifyLibraries@422a92cd51a15a224d4be3f9d239012f4ffce874
