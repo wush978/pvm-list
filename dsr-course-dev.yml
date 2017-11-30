@@ -91,7 +91,7 @@ __version__: 0.2
   survival: 2.39-4
 7:
   scales: 0.4.0
-  swirl: github::repo=wush978/swirl@3ddafb6b43fa2dacffea0a440e69e89a0e5735ac
+  swirl: github::repo=wush978/swirl@master
   knitr: 1.12.3
   reshape2: 1.4.1
   reshape: 0.8.5
