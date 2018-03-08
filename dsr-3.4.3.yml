@@ -26,7 +26,6 @@ __version__: 0.2
   stringi: 1.1.5
 5:
   Rcpp: 0.12.13
-  remotes: 1.1.0
   jsonlite: 1.5
   nlme: 3.1-131
   Matrix: 1.2-11
