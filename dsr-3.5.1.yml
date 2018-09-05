@@ -4,7 +4,6 @@ __version__: 0.2
   praise: 1.0.0
   rstudioapi: 0.7
   yaml: 2.1.18
-  littler: 0.3.3
   magrittr: 1.5
   openssl: 1.0.1
 2:
