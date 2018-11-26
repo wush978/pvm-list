@@ -3,7 +3,7 @@ __version__: 0.2
   bitops: 1.0-6
   praise: 1.0.0
   rstudioapi: 0.7
-  yaml: 2.1.18
+  yaml: 2.1.19
   magrittr: 1.5
   openssl: 1.0.1
 2:
