@@ -46,4 +46,4 @@ __version__: 0.2
   stringr: 1.3.0
   survival: 2.42-3
 7:
-  testthat: 2.0.0
+  testthat: 2.0.1
