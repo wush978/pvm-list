@@ -1,44 +1,23 @@
 __version__: 0.2
 1:
-  bitops: 1.0-6
-  praise: 1.0.0
   rstudioapi: 0.7
-  yaml: 2.1.14
   magrittr: 1.5
+  rappdirs: 0.3.1
+  R6: 2.2.2
   openssl: 0.9.7
+  yaml: 2.1.14
+  digest: 0.6.12
+  crayon: 1.3.4
+  bitops: 1.0-6
+  curl: 2.8.1
+  praise: 1.0.0
+  mime: 0.5
+  stringi: 1.1.5
+  jsonlite: 1.5
 2:
   getPass: 0.2-2
-  digest: 0.6.12
-  curl: 3.0
-  R6: 2.2.2
-  codetools: 0.2-15
-  mime: 0.5
-3:
-  memoise: 1.1.0
-4:
-  boot: 1.3-20
-  rpart: 4.1-11
-  lattice: 0.20-35
-  cluster: 2.0.6
-  nnet: 7.3-12
-  spatial: 7.3-11
-  KernSmooth: 2.23-15
-  stringi: 1.1.5
-5:
-  Rcpp: 0.12.13
-  jsonlite: 1.5
-  nlme: 3.1-131
-  Matrix: 1.2-11
   stringr: 1.2.0
-  rappdirs: 0.3.1
-  foreign: 0.8-69
-  MASS: 7.3-47
-  RCurl: 1.95-4.8
-  crayon: 1.3.4
-6:
-  class: 7.3-14
-  testthat: 1.0.2
-  mgcv: 1.8-22
   httr: 1.3.1
-  survival: 2.41-3
-  httpuv: 1.3.5
+  RCurl: 1.95-4.8
+  testthat: 1.0.2
+  memoise: 1.1.0
