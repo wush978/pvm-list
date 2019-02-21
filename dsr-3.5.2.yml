@@ -6,7 +6,7 @@ __version__: 0.2
   R6: 2.3.0
   rlang: 0.3.1
   withr: 2.1.2
-  openssl: 1.1
+  openssl: 1.2.1
   yaml: 2.2.0
   assertthat: 0.2.0
   digest: 0.6.18
