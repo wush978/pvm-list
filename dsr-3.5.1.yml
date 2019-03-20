@@ -16,7 +16,7 @@ __version__: 0.2
   glue: 1.2.0
   praise: 1.0.0
   mime: 0.5
-  stringi: 1.2.3
+  stringi: 1.2.4
   jsonlite: 1.5
 2:
   getPass: 0.2-2
