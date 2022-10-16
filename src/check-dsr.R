@@ -26,7 +26,7 @@ loginfo('Retrieving MRAN pkg index...')
 mran.pkgs <- available.packages(
   sprintf(
     'https://cran.microsoft.com/snapshot/%s/bin/windows/contrib/%s',
-    pvm::R.release.dates[target.version],
+    pvm::R.release.dates[target.version] + 14,
     pkg.version.str
   )
 )
