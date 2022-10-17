@@ -26,7 +26,6 @@ __version__: 0.2
   RCurl: 1.95-4.12
 3:
   testthat: 2.1.1
-  mgcv: 1.8-28
   openssl: 1.4
 4:
   httr: 1.4.0
