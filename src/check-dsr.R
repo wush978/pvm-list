@@ -5,6 +5,13 @@ source("src/_helper.R")
 args <- commandArgs(TRUE)
 target.version <- args[1]
 loginfo("target.version: %s", target.version)
+.cmd1 <- sprintf("docker run --rm rocker/r-ver:%s Rscript -e 'cat(deparse(names(which(installed.packages()[,c(\"Priority\")] ==\"base\"))))'", target.version)
+.cmd2 <- sprintf("docker run --rm rocker/r-ver:%s Rscript -e 'cat(deparse(names(which(installed.packages()[,c(\"Priority\")] ==\"recommended\"))))'", target.version)
+recom.pkgs <- c(
+  eval(parse(text = system(.cmd1, intern = TRUE))),
+  eval(parse(text = system(.cmd2, intern = TRUE)))
+)
+
 ## load dsr-{version}.yml
 target.dsr.path <- sprintf('dsr-%s.yml', target.version)
 loginfo("The dsr-%s.yml is: ", target.version)
@@ -31,6 +38,8 @@ mran.pkgs <- available.packages(
   )
 )
 
+
+dsr.pkgs <- sapply(dsr.tokens, "[", 2)
 . <- lapply(dsr.tokens, function(dsr.token) {
   pkg <- dsr.token[2]
   version <- dsr.token[3]
@@ -47,6 +56,15 @@ mran.pkgs <- available.packages(
   if (mran.version != version) {
     loginfo(sprintf("ERROR: Found inconsistent version of pkg: %s on R version: %s. pvm: %s mran: %s", pkg, target.version, version, mran.version))
     check <- FALSE
+  }
+  # check dependency
+  dep.pkgs <- tools::package_dependencies(pkg, db = mran.pkgs, which = 'strong')[[pkg]]
+  dep.check.result <- which(! dep.pkgs %in% dsr.pkgs)
+  if (length(dep.check.result) > 0) {
+    if (!all(dep.pkgs[dep.check.result] %in% recom.pkgs)) {
+      check <- FALSE
+      browser()
+    }
   }
   check
 })
