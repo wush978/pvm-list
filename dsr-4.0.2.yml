@@ -1,0 +1,46 @@
+__version__: 0.2
+1:
+  yaml: 2.2.1
+  rlang: 0.4.6
+  glue: 1.4.1
+  withr: 2.2.0
+  rappdirs: 0.3.1
+  evaluate: 0.14
+  ps: 1.3.3
+  curl: 4.3
+  sys: 3.3
+  fansi: 0.4.1
+  backports: 1.1.7
+  jsonlite: 1.7.0
+  mime: 0.9
+  digest: 0.6.25
+  stringi: 1.4.6
+  bitops: 1.0-6
+  magrittr: 1.5
+  crayon: 1.3.4
+  docopt: 0.7.1
+  praise: 1.0.0
+  prettyunits: 1.1.1
+  assertthat: 0.2.1
+  rstudioapi: 0.11
+  R6: 2.4.1
+2:
+  stringr: 1.4.0
+  askpass: 1.1
+  processx: 3.4.3
+  getPass: 0.2-2
+  rprojroot: 1.3-2
+  cli: 2.0.2
+  RCurl: 1.98-1.2
+  ellipsis: 0.3.1
+3:
+  callr: 3.4.3
+  openssl: 1.4.1
+  desc: 1.2.0
+4:
+  pkgbuild: 1.0.8
+  httr: 1.4.1
+5:
+  pkgload: 1.1.0
+6:
+  testthat: 2.3.2
