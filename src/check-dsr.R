@@ -1,9 +1,14 @@
 #!Rscript
 ## load dependency
+rm(list = ls(all.names = TRUE))
 source("src/_helper.R")
 ## get target version
-args <- commandArgs(TRUE)
-target.version <- args[1]
+if (interactive()) {
+  target.version <- readline('target version:')  
+} else {
+  args <- commandArgs(TRUE)
+  target.version <- args[1]
+}
 loginfo("target.version: %s", target.version)
 .cmd1 <- sprintf("docker run --rm rocker/r-ver:%s Rscript -e 'cat(deparse(names(which(installed.packages()[,c(\"Priority\")] ==\"base\"))))'", target.version)
 .cmd2 <- sprintf("docker run --rm rocker/r-ver:%s Rscript -e 'cat(deparse(names(which(installed.packages()[,c(\"Priority\")] ==\"recommended\"))))'", target.version)
@@ -14,6 +19,15 @@ recom.pkgs <- c(
 
 ## load dsr-{version}.yml
 target.dsr.path <- sprintf('dsr-%s.yml', target.version)
+if (!file.exists(target.dsr.path)) {
+  ## copy latest version
+  .dsrs <- dir('.', '^dsr-[0-9\\.]+.yml$')
+  .dsrs.v <- regmatches(x = .dsrs, m = regexec(pattern = '^dsr-(.+).yml$', text = .dsrs))
+  .dsrs.v <- sapply(.dsrs.v, "[", 2)
+  .dsrs.max.v <- max(package_version(.dsrs.v))
+  loginfo('Copy from version: %s', .dsrs.max.v)
+  stopifnot(file.copy(sprintf('dsr-%s.yml', .dsrs.max.v), target.dsr.path))
+}
 loginfo("The dsr-%s.yml is: ", target.version)
 dsr.pvm <- readLines(target.dsr.path)
 cat(dsr.pvm, sep = "\n")
@@ -42,9 +56,10 @@ mran.pkgs <- available.packages(
 dsr.pkgs <- sapply(dsr.tokens, "[", 2)
 . <- lapply(dsr.tokens, function(dsr.token) {
   pkg <- dsr.token[2]
+  loginfo('pkg: %s', pkg)
   version <- dsr.token[3]
   loginfo("Checking %s(%s)", pkg, version)
-  . <- mran.pkgs[mran.pkgs[,"Package"] == pkg, c("Version", "Priority")]
+  . <- mran.pkgs[pkg, c("Version", "Priority")]
   mran.version <- .[1]
   mran.priority <- .[2]
   loginfo("MRAN version: %s priority: %s", mran.version, mran.priority)
@@ -69,5 +84,6 @@ dsr.pkgs <- sapply(dsr.tokens, "[", 2)
   check
 })
 if (!all(unlist(.))) {
+  if (interactive()) file.edit(target.dsr.path)
   stop('Got an error')
 }
